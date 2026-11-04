@@ -32,7 +32,7 @@ César se adapta al alfabeto español con Ñ: HOLA → KRÑD con clave 3. Es un 
 
 ## Funcionamiento y fuentes
 
-Web estática, sin cuentas, API, analíticas ni registro de respuestas en la aplicación. Las imágenes y bibliotecas se sirven desde el propio sitio. GitHub puede registrar información de las visitas como parte de su servicio de alojamiento.
+Web estática, sin cuentas, servicios remotos de cálculo, analíticas ni registro de respuestas en la aplicación. Web Crypto es una API del propio navegador: el cifrado se ejecuta localmente. Las imágenes y bibliotecas se sirven desde el propio sitio. GitHub puede registrar información de las visitas como parte de su servicio de alojamiento.
 
 El estimador utiliza [zxcvbn de Dropbox](https://github.com/dropbox/zxcvbn), versión 4.4.2, con su [licencia MIT](recursos/vendor/LICENCIA-zxcvbn.txt). Incluye un pequeño vocabulario contextual español. Las infografías son ilustraciones didácticas elaboradas con asistencia de IA y revisadas.
 
