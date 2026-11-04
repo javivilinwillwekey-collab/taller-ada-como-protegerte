@@ -27,6 +27,9 @@ body{font-size:26px}.top{position:sticky;top:0;z-index:10;height:64px}.slide{scr
 .intro-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:8px}
 .intro-heading .eyebrow{margin:0}
 .intro-heading button{font-size:20px;padding:7px 14px;white-space:nowrap}
+.intro-teacher{display:flex;align-items:center;gap:18px}
+.photo-reminder{font-size:19px;color:var(--muted);white-space:nowrap}
+.photo-cue{display:inline-block;font-size:.7em;line-height:1;vertical-align:middle;margin-left:.15em}
 .guide-time{font-size:21px;font-weight:700;color:#365d4d;margin-bottom:18px}
 #simulador>.eyebrow{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0)}
 #simulador .alphabet span{font-size:clamp(24px,2.2vw,38px)}
