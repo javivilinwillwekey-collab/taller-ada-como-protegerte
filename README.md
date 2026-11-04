@@ -4,7 +4,9 @@ Recurso interactivo para una tutoría de 50 minutos en ESO. Diseñado para proye
 
 ## Abrir el taller
 
-La web publicada estará en GitHub Pages. El alumnado y el profesorado no necesitan una cuenta para utilizarla.
+**[Abrir el taller](https://javivilinwillwekey-collab.github.io/taller-ada-como-protegerte/)**
+
+El alumnado y el profesorado no necesitan una cuenta para utilizarla.
 
 También puede descargarse este repositorio y abrir `index.html` en un navegador actualizado, conservando la carpeta `recursos` junto a los archivos HTML, CSS y JavaScript.
 
