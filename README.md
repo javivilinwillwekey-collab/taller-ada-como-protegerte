@@ -12,7 +12,7 @@ También puede descargarse este repositorio y abrir `index.html` en un navegador
 
 ## Preparar la sesión
 
-- Imprimir al 100 % [las tiras de César](recursos/tiras-cesar-4-parejas.pdf): cuatro copias para treinta alumnos. Cada hoja contiene cuatro juegos de dos tiras. Recortar y repartir un juego por pareja.
+- Imprimir al 100 % [las tiras de César](recursos/tiras-cesar.pdf): cuatro copias para treinta alumnos. Cada hoja contiene cuatro juegos de dos tiras, con los rótulos ORIGINAL y CIFRADO y sin más textos, con márgenes de 5 mm. Recortar y repartir un juego por pareja.
 - Tener papel y lápiz para escribir los mensajes.
 - Usar **Preparar taller** en la pantalla inicial y el guion **Cómo dirigirlo**, disponible en cada pantalla con sus tiempos orientativos.
 
