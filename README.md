@@ -18,7 +18,9 @@ También puede descargarse este repositorio y abrir `index.html` en un navegador
 
 ## Recorrido
 
-Contraseñas y laboratorio de ejemplos inventados → verificación en dos pasos y engaños → historia del cifrado, simulador César y práctica con tiras → cifrados actuales → prevención y recuperación → conexiones con flechas y cierre.
+Contraseñas, clasificación con tarjetas y laboratorio de ejemplos inventados → verificación en dos pasos y engaños → historia del cifrado, simulador César y práctica con tiras → cifrados actuales → prevención y recuperación → conexiones con flechas y cierre.
+
+La clasificación permite arrastrar seis ejemplos a FUERTES o DÉBILES, comprobar y pulsar cada tarjeta para conocer su motivo. También se puede pulsar la tarjeta y después su columna. Los ejemplos son públicos y no se deben utilizar en cuentas.
 
 El analizador admite ejemplos ficticios escritos libremente. Su resultado es orientativo: no comprueba filtraciones ni certifica la seguridad de una contraseña. Nunca se deben introducir contraseñas reales.
 
@@ -34,4 +36,4 @@ Fuentes: [CISA, contraseñas](https://www.cisa.gov/sites/default/files/2024-09/S
 
 ## Mantenimiento
 
-Los archivos editables son `index.html`, `estilo.css`, `app.js` y `cesar.js`. La configuración de Pages sirve la raíz de la rama `main`. Las actualizaciones conservan la misma dirección web.
+Los archivos editables son `index.html`, `estilo.css`, `app.js`, `clasificar.js` y `cesar.js`. La configuración de Pages sirve la raíz de la rama `main`. Las actualizaciones conservan la misma dirección web.

@@ -34,3 +34,37 @@ body{font-size:26px}.top{position:sticky;top:0;z-index:10;height:64px}.slide{scr
 #simulador>.eyebrow{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0)}
 #simulador .alphabet span{font-size:clamp(24px,2.2vw,38px)}
 @media(min-height:900px){.feedback{font-size:32px}.callout{font-size:30px}.input-pane>.input-label{font-size:32px}.presets button{font-size:25px}.type-checks{font-size:32px}.check-line{font-size:28px}.metric{font-size:28px}.metric b{font-size:65px}#pw-rating{font-size:40px}#pw-feedback{font-size:32px}#pw-limit{font-size:26px}.lab-panel{padding:26px}.lab-grid{margin-top:25px}.match-board button{font-size:34px;min-height:120px}.message-grid textarea,.message-grid output{font-size:42px;min-height:130px}.alphabet span{font-size:34px}.message-grid label,.message-grid .input-label{font-size:30px}.row-label{font-size:23px}.steps h3{font-size:36px}.paper-demo strong{font-size:29px}}
+
+/* Clasificación: seis ejemplos, dos columnas y explicación al comprobar. */
+.sort-page h2{margin-bottom:10px}
+.sort-hint{font-size:24px;line-height:1.35;margin:0 0 12px;color:var(--muted)}
+.password-cards{display:grid;gap:8px;align-content:start}
+.password-bank{grid-template-columns:repeat(3,minmax(0,1fr));margin-bottom:12px}
+.password-card{position:relative;min-width:0;min-height:52px;padding:10px 30px 10px 12px;line-height:1.2;font-size:26px;font-weight:700;text-align:center;touch-action:none;user-select:none;cursor:grab;border:2px solid var(--line);background:#173f33}
+.password-card code{font:inherit;font-family:ui-monospace,'DejaVu Sans Mono',monospace;overflow-wrap:anywhere}
+.password-columns{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.password-zone{border:2px dashed var(--line);border-radius:14px;padding:10px 12px;min-height:152px;background:#10392d}
+.password-zone h3{margin:0 0 8px;line-height:1.1}
+.sort-column-button{width:100%;border:0;padding:2px 0 6px;background:transparent;font-size:28px;letter-spacing:1px}
+.sort-column-button:hover{background:#245b49}
+.password-zone .password-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+.password-zone .password-card{font-size:24px}
+.password-zone .password-cards:empty::before{content:'Suelta aquí';grid-column:1/-1;text-align:center;color:var(--muted);font-size:25px;padding:20px}
+.sort-actions{margin-top:12px}
+.sort-status{font-size:24px;line-height:1.3;margin:10px 0 0;min-height:32px;color:var(--muted)}
+.password-card.sort-selected{border-color:var(--yellow);outline:2px solid var(--yellow)}
+.password-card.sort-right{border-color:var(--cyan)}
+.password-card.sort-wrong{border-color:var(--coral)}
+.sort-mark{position:absolute;right:7px;top:7px;font:700 25px/1 sans-serif}
+.sort-right .sort-mark{color:var(--cyan)}
+.sort-wrong .sort-mark{color:var(--coral)}
+.sort-drop-over{outline:3px solid var(--yellow);outline-offset:3px;background:#245542}
+.sort-drag-origin{opacity:.25}
+.sort-ghost{position:fixed;z-index:10000;pointer-events:none;transform:translate(-50%,-50%);box-shadow:0 10px 28px #0008;cursor:grabbing;border-color:var(--yellow)}
+.password-bubble{max-width:940px;width:85vw;border:4px solid #176d59;border-radius:30px;box-shadow:0 15px 60px #0008;padding:26px 32px}
+.password-bubble .dialog-head h2{font:700 32px/1.3 ui-monospace,monospace;overflow-wrap:anywhere}
+.sort-verdict{font-size:25px;font-weight:800;color:#116650;margin-bottom:15px}
+.password-bubble.weak-example .sort-verdict{color:#8b3527}
+#sort-reason{font-size:30px;line-height:1.4;margin-bottom:22px}
+.bubble-note{font-size:21px;border-top:1px solid #9eb8a5;padding-top:13px;margin:0;color:#365d4d}
+@media(min-height:900px){.sort-hint,.sort-status{font-size:30px}.password-card{font-size:32px;min-height:72px;padding:14px 36px 14px 15px}.password-zone .password-card{font-size:30px}.password-cards{gap:13px}.password-bank{margin:20px 0}.password-zone{padding:20px;min-height:240px}.sort-column-button{font-size:36px}.sort-actions{margin-top:20px}.sort-verdict{font-size:30px}#sort-reason{font-size:36px}}
