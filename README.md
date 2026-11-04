@@ -18,11 +18,15 @@ También puede descargarse este repositorio y abrir `index.html` en un navegador
 
 ## Recorrido
 
-Contraseñas, clasificación con tarjetas y laboratorio de ejemplos inventados → verificación en dos pasos y engaños → historia del cifrado, simulador César y práctica con tiras → cifrados actuales → prevención y recuperación → conexiones con flechas y cierre.
+Contraseñas, clasificación con tarjetas y laboratorio de ejemplos inventados → SMS simulado y verificación en dos pasos → por qué ciframos, historia del cifrado, simulador César y práctica con tiras → cifrados actuales → prevención y recuperación → conexiones con flechas y cierre.
 
 La clasificación permite arrastrar seis ejemplos a FUERTES o DÉBILES, comprobar y pulsar cada tarjeta para conocer su motivo. También se puede pulsar la tarjeta y después su columna. Los ejemplos son públicos y no se deben utilizar en cuentas.
 
 El analizador admite ejemplos ficticios escritos libremente. Su resultado es orientativo: no comprueba filtraciones ni certifica la seguridad de una contraseña. Nunca se deben introducir contraseñas reales.
+
+El SMS permite localizar señales de engaño y decidir comprobar el aviso desde la aplicación o web oficial. El teléfono es una simulación y su dominio de ejemplo no abre ninguna web.
+
+La demostración del envío compara un mensaje sin cifrar y cifrado mediante Web Crypto (AES-GCM) dentro del navegador. Recupera el texto con su clave y no envía datos a otros dispositivos. Es una ilustración del cifrado, sin reproducir el protocolo de WhatsApp.
 
 César se adapta al alfabeto español con Ñ: HOLA → KRÑD con clave 3. Es un modelo histórico para aprender; no debe emplearse para proteger información real. El simulador admite claves 1–26 y las tiras impresas están preparadas para 1–5.
 
@@ -34,6 +38,8 @@ El estimador utiliza [zxcvbn de Dropbox](https://github.com/dropbox/zxcvbn), ver
 
 Fuentes: [CISA, contraseñas](https://www.cisa.gov/sites/default/files/2024-09/Secure-Our-World-Passwords-Tip-Sheet.pdf), [NIST SP 800-63B-4](https://pages.nist.gov/800-63-4/sp800-63b.html), [FTC, verificación en dos pasos](https://consumer.ftc.gov/articles/use-two-factor-authentication-protect-your-accounts), [Suetonio, Julio César 56.6](https://lexundria.com/suet_jul/56.6/r), [MDN, TLS](https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security), [INCIBE, copias de seguridad](https://www.incibe.es/sites/default/files/contenidos/guias/guia-copias-de-seguridad.pdf).
 
+La interfaz emplea una pizarra con piezas de papel, iconos y escenas reconocibles. Se ha comprobado en pantallas horizontales de 1366 × 768 y 1920 × 1080, con las infografías y controles integrados a gran tamaño.
+
 ## Mantenimiento
 
-Los archivos editables son `index.html`, `estilo.css`, `app.js`, `clasificar.js` y `cesar.js`. La configuración de Pages sirve la raíz de la rama `main`. Las actualizaciones conservan la misma dirección web.
+Los archivos editables son `index.html`, `estilo.css`, `app.js`, `clasificar.js`, `historias.js` y `cesar.js`. La configuración de Pages sirve la raíz de la rama `main`. Las actualizaciones conservan la misma dirección web.
