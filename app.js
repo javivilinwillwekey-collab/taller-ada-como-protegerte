@@ -2,31 +2,127 @@
 'use strict';
 const $=id=>document.getElementById(id);
 const slides=[...document.querySelectorAll('.slide')];
-const notes=[
- ['Di','«Hoy vamos a proteger cuentas, mensajes y archivos. ¿Qué pasaría si perdieras tu cuenta de juego, correo o clase?»','Haz','Da un minuto para pensar y recoge tres consecuencias. Pulsa cada opción para conectarla con el taller. Recuerda hacer alguna foto del taller; las cámaras señalan dos momentos de actividad.','Cierra','«Una sola medida no protege todo. Necesitamos varias que se complementen».'],
- ['Di','«Una contraseña necesita longitud, variedad y poca previsibilidad. Nuestra referencia es 16 o más caracteres, y una distinta para cada cuenta».','Señala','Identifica A-Z, a-z, 0-9 y símbolos como !, @ o #. Mezclarlos puede ampliar las posibilidades si no se eligen siguiendo patrones fáciles.','Aclara','«Casa2026! mezcla los cuatro tipos, pero es corta y predecible. Un gestor ayuda a crear y conservar claves distintas». Las plataformas pueden exigir composiciones concretas; no las confundas con una garantía universal.'],
- ['Haz','La clase propone una columna y justifica cada decisión. Arrastra las seis tarjetas o pulsa una y después FUERTES o DÉBILES. Pulsa comprobar al terminar; después, pulsa las tarjetas para leer su motivo.','Pregunta','«ts.&6+Bu mezcla los cuatro tipos. ¿Por qué sigue en débiles? ¿Basta con repetir 16 veces la misma letra?» Si hay errores, arrastra la tarjeta a la otra columna y vuelve a comprobar.','Respuestas','Débiles: azucenatequiero, soyelmejor10, ts.&6+Bu y la repetición de a. Fuertes por su construcción: la combinación variada de 16 caracteres y las cuatro palabras con separadores. La fortaleza no depende solo de mezclar tipos; también cuentan longitud e imprevisibilidad. Todas son ejemplos públicos y no deben utilizarse en cuentas.'],
- ['Haz','Retoma una tarjeta débil y pide una mejora inventada a la clase. Antes de escribirla, predecid el resultado. Probad una propuesta y, si hay tiempo, comparadla con uno de los ejemplos preparados.','Pregunta','«¿Tiene los cuatro tipos? ¿Es larga? ¿Repite un patrón? ¿La usarías en varias cuentas?» Marca la casilla de reutilización y comenta qué cambia.','Respuesta esperada','La longitud y la variedad importan, pero repetir, usar datos personales o reutilizar reduce la protección. El indicador estima resistencia, no certifica seguridad ni busca filtraciones. Nadie dicta su contraseña real.'],
- ["Haz", "Muestra el SMS simulado y pregunta qué harían antes de tocar nada. Tocad las tres pistas dentro del mensaje: bloqueo urgente, enlace por comprobar y petición del código. Después votad y elegid una respuesta.", "Comprueba", "La opción adecuada es abrir la app o web oficial por nuestra cuenta. Al elegirla aparecen las acciones para recordar y un ejemplo concreto de verificación en dos pasos. El remitente y el enlace son ficticios; no se envía ningún SMS.", "Explica", "Una web falsa puede robar una contraseña fuerte. La verificación en dos pasos añade, por ejemplo, un código temporal generado por una app. Se introduce en el acceso oficial que tú has iniciado; no se dicta ni se envía a quien lo pide por un mensaje. Los códigos también pueden ser objeto de un engaño."],
- ["Conecta", "Pregunta si conocen el aviso de cifrado de extremo a extremo en los chats personales de WhatsApp. «Si alguien intercepta un mensaje mientras viaja, ¿podrá entenderlo?»", "Haz", "Pulsa Enviar sin cifrar: el observador puede leer el contenido. Después pulsa Enviar cifrado: el observador ve datos cifrados y quien recibe recupera el mismo mensaje con la clave. Repite si queréis comprobar que los datos cifrados cambian.", "Transición y modelo", "«Julio César ocultaba correspondencia cambiando letras. Ahora probamos ese método histórico». En la siguiente pantalla, Historia y ejemplo conserva la infografía. La demostración cifra y descifra realmente con AES-GCM en el navegador; todos los extremos están representados localmente y no reproduce el protocolo de WhatsApp. No se envían datos a otro dispositivo."],
- ['Haz','Muestra HOLA con clave 3: KRÑD. Desliza a 1 y vuelve a 3. Pide un mensaje inventado y escríbelo. Usa el botón de invertir para recuperarlo.','Pregunta','«¿Qué cambia cuando muevo la clave? ¿Qué necesita saber quien recibe el mensaje?»','Respuesta esperada','Cambia la correspondencia entre letras. Para este ejercicio, emisor y receptor conocen el mismo desplazamiento y el mismo alfabeto. Si una letra no coincide, revisa la Ñ y la dirección de lectura.'],
- ['Prepara','Reparte dos tiras ya recortadas por pareja. Se necesitan papel y lápiz, no ordenadores del alumnado. No hay que copiar ni fabricar alfabetos.','Dirige','1 minuto para alinear D bajo A; 4 para que A envíe y B descifre; 4 para cambiar roles; 1 para comprobar. Conserva el original fuera de la vista del receptor.','Comprueba','Con Ñ: HOLA → KRÑD; NOS VEMOS → PRV YHORV. El alumnado ayudante modela una letra y revisa la alineación. Si sobra tiempo, clave 5. Las tiras impresas están preparadas para claves de 1 a 5.'],
- ['Haz','Pulsa las tres escenas y pregunta quién puede leer los datos en cada una. Si necesitas apoyo visual, amplía la comparación completa.','Explica','En un chat personal con extremo a extremo, el contenido se lee en los dispositivos de la conversación. HTTPS protege el trayecto hasta la web, que recibe los datos. El cifrado del dispositivo protege archivos guardados.','Comprueba','«¿Puede el receptor hacer una captura? ¿Una web engañosa puede usar HTTPS?» En ambos casos sí. Cifrar no prueba que un mensaje sea verdadero. César con Ñ solo tiene 26 desplazamientos no nulos; hoy se usan otros algoritmos y sistemas.'],
- ['Di','«Seguridad activa: medidas para prevenir o reducir el riesgo. Seguridad pasiva: medidas para reducir el daño y poder recuperar. Es el esquema de trabajo de este taller».','Señala','Una contraseña única, la verificación en dos pasos y las actualizaciones previenen. Una copia separada ayuda a recuperar si se pierde el original.','Idea clave','La copia se hace ANTES, aunque su utilidad sea recuperar DESPUÉS. Tener dos archivos solo en el mismo equipo no cubre la pérdida o avería de ese equipo.'],
- ['Haz','Pide a distintas parejas que propongan cada conexión. Tú pulsas la medida y después su efecto; las flechas se pueden cambiar. Son dos rondas: tres medidas de prevención y dos de recuperación. Comprueba cada ronda antes de pasar a la siguiente.','Respuestas','1-C: una filtración no abre todas las cuentas; 2-E: segunda barrera; 3-B: corregir fallos; 4-A: recuperar sin el equipo; 5-D: comprobar que la copia sirve.','Pregunta final','«¿Qué previene y qué permite recuperar? ¿Por qué la copia se prepara antes?» Las medidas 1–3 previenen; 4–5 preparan la recuperación. Cada pareja justifica una conexión; no basta acertar el término.'],
- ['Haz','Recoge tres respuestas breves, una por pregunta. Después, cada pareja dice una mejora que aplicaría con apoyo en casa o en el centro.','Respuestas','1: añadir 123! puede seguir un patrón; queremos longitud, variedad, imprevisibilidad y una clave distinta por cuenta. 2: César es un modelo para aprender. 3: una copia solo en el mismo equipo puede perderse con él.','Cierra','«Me llevo una decisión para mis cuentas, una para mis mensajes y otra para mis archivos». No cambies cuentas reales ni pidas teléfonos personales durante la tutoría.']
-];
+const notes={
+  "inicio": [
+    "Haz",
+    "Pregunta qué perderían si no pudieran entrar en su cuenta. Recoge dos respuestas, pulsa una de las tres opciones y lee su «Imagina que…». Pide una consecuencia; basta con comentar uno o dos casos.",
+    "Explica",
+    "Hoy vamos a proteger el acceso a las cuentas, el contenido de los mensajes y los archivos que queremos conservar. Cada problema necesita medidas adecuadas.",
+    "Comprueba",
+    "Pregunta: «Si alguien entra en tu cuenta y se hace pasar por ti, ¿a quién más puede afectar?». Buscamos que relacionen la seguridad con sus amistades, su privacidad y su trabajo."
+  ],
+  "claves": [
+    "Haz",
+    "Señala «16+ caracteres» y los cuatro tipos: mayúsculas, minúsculas, números y símbolos. Después pide que observen Casa2026! y digan por qué sigue siendo predecible.",
+    "Explica",
+    "Una contraseña debe ser larga, difícil de adivinar y distinta para cada cuenta. Mezclar tipos aporta variedad, pero una palabra común con el año y una exclamación sigue un patrón. Un gestor ayuda a generar y guardar claves distintas.",
+    "Comprueba",
+    "Pregunta: «¿Basta con añadir un símbolo a una contraseña fácil?». La respuesta es no: también importan la longitud y que no siga patrones previsibles."
+  ],
+  "clasificar": [
+    "Haz",
+    "La clase decide dónde va cada ejemplo y justifica su elección. Arrastra las seis tarjetas, pulsa «Comprobar» y abre la explicación de las que hayan generado dudas. Si hay errores, cambiadlas de columna y comprobad de nuevo.",
+    "Explica",
+    "ts.&6+Bu mezcla los cuatro tipos, pero solo tiene ocho caracteres. Repetir dieciséis veces la misma letra tampoco crea una buena contraseña. Los ejemplos son públicos: no se usan en cuentas.",
+    "Comprueba",
+    "Quedan en FUERTES vR7!pL2#sT9@kM4? y Nuez-Tren-Lago-Faro-8; las otras cuatro, en DÉBILES. Pide justificar por qué una contraseña corta puede seguir siendo débil aunque tenga símbolos."
+  ],
+  "laboratorio": [
+    "Haz",
+    "Prueba Casa2026! y después «Cuatro palabras». Antes de cada prueba, pide que anticipen el resultado. Acepta una mejora inventada por la clase y marca el supuesto de reutilización. Nunca utilicéis contraseñas reales.",
+    "Explica",
+    "El indicador orienta sobre longitud y patrones; no garantiza la seguridad. Una contraseña repetida permite que un robo en un servicio afecte también a otras cuentas.",
+    "Comprueba",
+    "Pregunta: «¿Qué mejoraríamos además de añadir un símbolo?». Esperamos: hacerla más larga e imprevisible y usar una distinta para cada cuenta."
+  ],
+  "segunda-barrera": [
+    "Haz",
+    "Lee el SMS y pide tres señales de alerta. Pulsa la amenaza de bloqueo, el enlace y la petición del código. Votad qué haríais y elegid «Comprobar desde la app oficial» para mostrar los dos pasos.",
+    "Explica",
+    "Un aviso urgente puede ser una trampa. La verificación en dos pasos añade, por ejemplo, un código de una app de autenticación a tu contraseña. Ese código solo se usa en el acceso oficial que has iniciado.",
+    "Comprueba",
+    "Pregunta: «¿Enviaríamos el código a quien nos lo pide por un mensaje?». No. Nos paramos y comprobamos el aviso desde la app o web oficial abierta por nuestra cuenta."
+  ],
+  "mensajes": [
+    "Haz",
+    "Anuncia: «Pasamos a proteger el contenido de los mensajes». Lee el título y señala el sobre cerrado para presentar el nuevo bloque.",
+    "Explica",
+    "Queremos que el mensaje llegue a su destinatario sin que cualquiera que lo intercepte pueda entender su contenido. Para eso sirve el cifrado.",
+    "Continúa",
+    "Pregunta: «Si alguien intercepta el mensaje, ¿debería poder leerlo?». Recoge una respuesta y avanza para comparar los dos envíos."
+  ],
+  "cifrar": [
+    "Haz",
+    "Señala el aviso de WhatsApp y pregunta si lo reconocen. Pulsa «Enviar sin cifrar» y observad a quien intercepta. Después pulsa «Enviar cifrado» y comparad lo que ven el observador y el destinatario.",
+    "Explica",
+    "Cifrar transforma el contenido con una clave para ocultarlo durante el envío. El destinatario usa la clave adecuada para recuperarlo. En los chats personales con cifrado de extremo a extremo, se lee en los dispositivos de la conversación.",
+    "Presenta a César",
+    "Lee la pregunta sobre la antigua Roma. Explica que Julio César ocultaba correspondencia confidencial cambiando letras. Avanza para probar ese método sencillo y entender la idea de clave."
+  ],
+  "simulador": [
+    "Haz",
+    "Muestra HOLA con clave 3: KRÑD. Señala A arriba y D debajo. Cambia la clave a 1, vuelve a 3 y pulsa «Descifrar este resultado» para recuperar HOLA.",
+    "Explica",
+    "Esto es el cifrado César: la clave indica cuántas posiciones desplazamos las letras. Para descifrar se hace el recorrido inverso. Usamos la Ñ como adaptación a nuestro alfabeto.",
+    "Comprueba",
+    "Pregunta: «¿Qué necesita saber quien recibe el mensaje?». El mismo alfabeto y la clave. Fue útil para ocultar mensajes, pero hoy resulta fácil probar sus veintiséis desplazamientos posibles."
+  ],
+  "papel": [
+    "Haz",
+    "Reparte un juego de dos tiras por pareja y alinead D debajo de A. A escribe dos a cuatro palabras, las cifra y pasa el mensaje a B. B lo descifra, comparan con el original y después cambian de función.",
+    "Explica",
+    "Para cifrar, se busca arriba y se lee abajo; para descifrar, se busca abajo y se lee arriba. El original queda apartado hasta la comprobación. Conservamos Ñ y espacios y escribimos sin tildes.",
+    "Comprueba",
+    "Pide a una pareja mostrar HOLA → KRÑD → HOLA. Si no coincide, revisad la clave, la Ñ y la dirección de lectura. Quien termine puede repetir con clave 5."
+  ],
+  "hoy": [
+    "Haz",
+    "Pulsa las tres escenas y pregunta quién puede leer los datos en cada una. Usa «Ver la comparación completa» si necesitas apoyarte en la infografía.",
+    "Explica",
+    "Chat personal: el contenido se lee en los dispositivos de la conversación. HTTPS: protege el trayecto hasta la web, que recibe los datos. Dispositivo cifrado: ayuda a proteger los archivos guardados si se pierde.",
+    "Comprueba",
+    "Pregunta: «¿Una web con candado puede ser engañosa? ¿El receptor puede compartir una captura?». Sí en ambos casos. Cifrar protege el contenido, pero no garantiza que la web o la persona sean fiables."
+  ],
+  "prevenir": [
+    "Haz",
+    "Señala una medida de cada lado de la infografía. Retoma el caso del portátil que se estropea: pregunta qué habríamos preparado para poder recuperar el trabajo.",
+    "Explica",
+    "La seguridad activa reduce el riesgo: contraseñas únicas, verificación en dos pasos y actualizaciones. La seguridad pasiva reduce el daño: una copia separada y comprobar que podemos restaurarla.",
+    "Comprueba",
+    "Pregunta: «¿Cuándo hacemos la copia?». Antes de que ocurra el problema, aunque nos ayude después. Otra carpeta en el mismo equipo no basta si se pierde o avería ese equipo."
+  ],
+  "conecta": [
+    "Haz",
+    "Pide una propuesta y su motivo antes de unir. Pulsa una medida y después su efecto. Comprueba las tres conexiones de la primera ronda y pasa a las dos de la segunda; las flechas se pueden corregir.",
+    "Explica",
+    "La primera ronda reúne medidas para prevenir: limitar el efecto de una filtración, añadir protección al acceso y corregir fallos. La segunda prepara la recuperación con una copia separada y una prueba de restauración.",
+    "Comprueba",
+    "Soluciones: 1–C, 2–E y 3–B; después, 4–A y 5–D. Pide justificar una conexión: «¿Cómo ayuda esa medida?». Acertar la flecha debe ir acompañado de una explicación."
+  ],
+  "cierre": [
+    "Haz",
+    "Lee cada pregunta, recoge una respuesta y después pulsa la tarjeta para comentarla. Así la explicación aparece tras la participación de la clase.",
+    "Explica",
+    "Añadir 123! no elimina los patrones. César se descifra probando pocas claves. Una copia en el mismo equipo puede perderse con él. Proteger el acceso, cifrar el contenido y preparar copias cubren problemas distintos.",
+    "Cierra",
+    "Pide completar: «Esta semana voy a… para proteger…». Dos voluntarios comparten una mejora que puedan aplicar con ayuda en casa."
+  ]
+};
 let current=0;
 const dots=$('dots');
 slides.forEach((s,i)=>{const b=document.createElement('button');b.setAttribute('aria-label',`Ir a pantalla ${i+1}: ${s.dataset.label}`);b.addEventListener('click',()=>go(i));dots.append(b);});
 function clearPassword(){ $('password-demo').value='';$('pw-reused').checked=false;analysePassword(); }
 function go(n){n=Math.max(0,Math.min(slides.length-1,n));if(slides[current]?.id==='laboratorio'&&slides[n].id!=='laboratorio')clearPassword();current=n;slides.forEach((s,i)=>s.hidden=i!==n);$('phase-label').textContent=slides[n].dataset.label;$('page-count').textContent=`${n+1} / ${slides.length}`;[...dots.children].forEach((b,i)=>{b.classList.toggle('visited',i<n);i===n?b.setAttribute('aria-current','step'):b.removeAttribute('aria-current');});$('previous').disabled=n===0;$('next').disabled=n===slides.length-1;$('next').textContent=n===0?'Comenzar →':'Siguiente →';history.replaceState(null,'','#'+slides[n].id);window.scrollTo({top:0});$('app-status').textContent=`Pantalla ${n+1}: ${slides[n].dataset.label}`;if(slides[n].id==='conecta')requestAnimationFrame(drawConnections);}
-$('next').addEventListener('click',()=>go(current+1));$('previous').addEventListener('click',()=>go(current-1));$('restart').addEventListener('click',()=>{resetMatch();go(0);});document.querySelector('.brand').addEventListener('click',e=>{e.preventDefault();go(0);});
+$('next').addEventListener('click',()=>go(current+1));$('previous').addEventListener('click',()=>go(current-1));$('restart').addEventListener('click',()=>{resetMatch();resetOpening();go(0);});document.querySelector('.brand').addEventListener('click',e=>{e.preventDefault();go(0);});
 document.addEventListener('keydown',e=>{if(document.querySelector('dialog[open]')||e.altKey||e.ctrlKey||e.metaKey||/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;if(e.key==='ArrowRight'){e.preventDefault();go(current+1);}if(e.key==='ArrowLeft'){e.preventDefault();go(current-1);}});
 $('fullscreen').addEventListener('click',async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen();}catch{$('app-status').textContent='El navegador no permite pantalla completa. Puedes usar F11.';}});
-$('guide').addEventListener('click',()=>{const n=notes[current];$('guide-title').textContent=slides[current].dataset.label;const start=slides.slice(0,current).reduce((a,s)=>a+Number(s.dataset.time),0);const duration=Number(slides[current].dataset.time);const timing=document.createElement('p');timing.className='guide-time';timing.textContent=`Tiempo orientativo: ${duration} min · minutos ${start}–${start+duration} del taller`;$('guide-content').replaceChildren(timing);for(let i=0;i<n.length;i+=2){const box=document.createElement('div');box.className='guide-block '+(i===4?'answer':'');const h=document.createElement('h3');h.textContent=n[i];const p=document.createElement('p');p.textContent=n[i+1];box.append(h,p);$('guide-content').append(box);}$('guide-dialog').showModal();});
+function formatDuration(m){const seconds=Math.round(m*60);return seconds<60?`${seconds} s`:seconds%60?`${Math.floor(seconds/60)} min ${seconds%60} s`:`${seconds/60} min`;}
+function formatElapsed(m){const seconds=Math.round(m*60);return `${Math.floor(seconds/60)}:${String(seconds%60).padStart(2,'0')}`;}
+$('guide').addEventListener('click',()=>{const n=notes[slides[current].id];$('guide-title').textContent=slides[current].dataset.label;const start=slides.slice(0,current).reduce((a,s)=>a+Number(s.dataset.time),0);const duration=Number(slides[current].dataset.time);const timing=document.createElement('p');timing.className='guide-time';timing.textContent=`Tiempo orientativo: ${formatDuration(duration)} · ${formatElapsed(start)}–${formatElapsed(start+duration)} del taller`;$('guide-content').replaceChildren(timing);for(let i=0;i<n.length;i+=2){const box=document.createElement('div');box.className='guide-block '+(i===4?'answer':'');const h=document.createElement('h3');h.textContent=`${i/2+1} · ${n[i]}`;const p=document.createElement('p');p.textContent=n[i+1];box.append(h,p);$('guide-content').append(box);}$('guide-dialog').showModal();});
 $('prepare').addEventListener('click',()=>$('prepare-dialog').showModal());document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>b.closest('dialog').close()));document.querySelectorAll('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target===d)d.close();}));document.querySelectorAll('[data-zoom]').forEach(b=>b.addEventListener('click',()=>{$('zoom-image').src=b.querySelector('img')?.src||b.dataset.zoom;$('zoom-image').alt=b.dataset.zoomAlt||b.querySelector('img')?.alt||'Comparación de cifrado en chats, conexiones y archivos';$('zoom-dialog').showModal();}));
-const opening={cuenta:'Una contraseña distinta y la verificación en dos pasos ayudan a proteger el acceso.',mensajes:'El cifrado ayuda a proteger el contenido. El destinatario puede leerlo y compartirlo.',archivos:'Una copia separada puede permitir recuperar el trabajo si se pierde el original.'};document.querySelectorAll('[data-opening]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-opening]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));$('opening-feedback').textContent=opening[b.dataset.opening];}));
+const openingStories={"cuenta": "Alguien entra en tu cuenta de un juego, cambia la contraseña y manda mensajes haciéndose pasar por ti.", "mensajes": "En un chat sin cifrado dices dónde y a qué hora quedáis. Alguien intercepta el mensaje y puede leerlo.", "archivos": "Tu portátil se estropea la víspera de entregar un vídeo que lleváis días preparando. La única copia estaba allí."};
+const opening={cuenta:'Una contraseña distinta y la verificación en dos pasos ayudan a proteger el acceso.',mensajes:'El cifrado ayuda a proteger el contenido. El destinatario puede leerlo y compartirlo.',archivos:'Una copia separada puede permitir recuperar el trabajo si se pierde el original.'};document.querySelectorAll('[data-opening]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-opening]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));$('opening-feedback').textContent=opening[b.dataset.opening];$('opening-story').textContent=openingStories[b.dataset.opening];$('opening-scenario').hidden=false;}));
+function resetOpening(){$('opening-scenario').hidden=true;$('opening-story').textContent='';$('opening-feedback').textContent='Votad y explicad una consecuencia. Hoy vamos a proteger las tres cosas.';document.querySelectorAll('[data-opening]').forEach(b=>b.setAttribute('aria-pressed','false'));}
 // El texto de entrada solo vive en el campo y en esta llamada. No hay almacenamiento ni peticiones de red.
 const contextWords=['contraseña','contrasena','colegio','instituto','santo','domingo','maria','javier','lucia','pablo','almeria','granada','sevilla','casa','futbol','verano','hola'];
 function analysePassword(){const text=$('password-demo').value;const size=Array.from(text).length;$('pw-length').textContent=String(size);const types=[['Mayúsculas',/\p{Lu}/u.test(text)],['Minúsculas',/\p{Ll}/u.test(text)],['Números',/\p{N}/u.test(text)],['Símbolos',/[^\p{L}\p{N}\s]/u.test(text)]];$('pw-types').replaceChildren();types.forEach(([name,present])=>{const s=document.createElement('span');s.textContent=(present?'✓ ':'— ')+name;if(present)s.className='present';$('pw-types').append(s);});let score=0;if(!text){$('pw-rating').textContent='Esperando un ejemplo';$('pw-feedback').textContent='Primero predecid el resultado. Después observad longitud, tipos y patrones.';}else if(typeof window.zxcvbn!=='function'){$('pw-rating').textContent='Estimador no disponible';$('pw-feedback').textContent='Observad la longitud y los tipos. Abre el paquete completo para usar la estimación de patrones.';}else{const result=window.zxcvbn(text,contextWords);score=result.score;$('pw-rating').textContent=['Muy baja','Baja','Media','Alta','Muy alta'][score]+' · orientativa';const patterns=result.sequence.filter(s=>s.token.length>=3);const reasons=[];if(size<16)reasons.push('Por debajo de 16 caracteres.');if(patterns.some(s=>s.pattern==='repeat'))reasons.push('Repetir caracteres crea un patrón fácil de probar.');if(patterns.some(s=>['sequence','spatial','date'].includes(s.pattern)))reasons.push('Reconoce una secuencia, fecha o recorrido de teclado.');if(patterns.some(s=>s.pattern==='dictionary'))reasons.push('Contiene patrones previsibles: añadir números o símbolos no basta.');if(!reasons.length)reasons.push('Sin patrones evidentes para este estimador. Debe seguir siendo secreta y distinta en cada cuenta.');if($('pw-reused').checked)reasons.unshift('Una contraseña repetida pone varias cuentas en riesgo.');$('pw-feedback').textContent=reasons.slice(0,2).join(' ');}$('pw-meter').setAttribute('aria-valuenow',String(score));$('pw-meter').setAttribute('aria-valuetext',text?$('pw-rating').textContent:'Sin ejemplo');$('pw-meter').style.setProperty('--meter',score<2?'#ffb5a6':score<3?'#f8dd62':'#7ce9df');[...$('pw-meter').children].forEach((p,i)=>p.classList.toggle('active',!!text&&i<=score));}

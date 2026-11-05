@@ -18,7 +18,7 @@ También puede descargarse este repositorio y abrir `index.html` en un navegador
 
 ## Recorrido
 
-Contraseñas, clasificación con tarjetas y laboratorio de ejemplos inventados → SMS simulado y verificación en dos pasos → por qué ciframos, historia del cifrado, simulador César y práctica con tiras → cifrados actuales → prevención y recuperación → conexiones con flechas y cierre.
+Casos «Imagina que…» → contraseñas, clasificación con tarjetas y laboratorio de ejemplos inventados → SMS simulado y verificación en dos pasos → presentación del bloque de mensajes, por qué ciframos e historia del cifrado, simulador César y práctica con tiras → cifrados actuales → prevención y recuperación → conexiones con flechas y cierre.
 
 La clasificación permite arrastrar seis ejemplos a FUERTES o DÉBILES, comprobar y pulsar cada tarjeta para conocer su motivo. También se puede pulsar la tarjeta y después su columna. Los ejemplos son públicos y no se deben utilizar en cuentas.
 
@@ -43,3 +43,5 @@ La interfaz emplea una pizarra con piezas de papel, iconos y escenas reconocible
 ## Mantenimiento
 
 Los archivos editables son `index.html`, `estilo.css`, `app.js`, `clasificar.js`, `historias.js` y `cesar.js`. La configuración de Pages sirve la raíz de la rama `main`. Las actualizaciones conservan la misma dirección web.
+
+Revisión del 5 de noviembre: trece pantallas y 50 minutos. El guion de cada pantalla se organiza en acción, explicación y comprobación o cierre. Las infografías principales se leen directamente; los apoyos opcionales se abren en un visor centrado.
